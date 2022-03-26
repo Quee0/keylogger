@@ -39,5 +39,4 @@ def main():
 if __name__ == "__main__":
     queue = ''
     timer = Thread(target=timer_thread)
-    run = True
     main()
