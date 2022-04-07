@@ -11,7 +11,7 @@ def timer_thread():
     while True:
         if handler == queue: counter += 1
         else: counter = 0 
-        if counter == 5: save()
+        if counter == 2: save()
         handler = queue
         sleep(1.25)
 
